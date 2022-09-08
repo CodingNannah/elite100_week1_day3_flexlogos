@@ -1,0 +1,70 @@
+/* Margins not working! Found the following solution at https://pressupinc.com/blog/2014/01/whats-wrong-css-box-model-fix/apply - A natural box layout model to all elements */
+*, *:before, *:after {
+    -webkit-box-sizing: border-box !important;
+      -moz-box-sizing: border-box !important;
+      -ms-box-sizing: border-box !important;
+      box-sizing: border-box !important;
+  }
+
+/*proposed solution for overflow issues via https://www.positioniseverything.net/css-not-working */
+  * {
+    outline: 1px solid red;
+    }
+
+.container {
+    display: grid;
+    width: auto;
+    height: 100px;
+    padding: 20px;
+    /*margin: 50px 150px 50px 150px;*/
+    /* line-height is a proposed solution for the margin issue from a stackoverflow message. 
+    line-height: 50px;*/
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 50px;
+    grid-template-areas:  
+    "image_1 image_2 image_3 image_4"
+    "image_5 image_6 image_7 image_8";     
+}
+
+/* margin solution proposed in https://stackoverflow.com/questions/22253560/it-seems-that-box-sizing-border-box-is-not-working*/
+
+img {
+    /*margin: 50px;*/
+    height: 60px;
+    width: 75px;
+    border: 1px solid lightslategray;
+}
+
+.image_1 {
+    grid-area: image_1;
+    justify-self: center;
+}
+
+.image_2 {
+    grid-area: image_2;
+}
+
+.image_3 {
+    grid-area: image_3; 
+}
+
+.image_4 {
+    grid-area: image_4;
+}
+
+.image_5 {
+    grid-area: image_5;
+}
+
+.image_6 {
+    grid-area: image_6;
+}
+
+.image_7 {
+    grid-area: image_7;
+}
+
+.image_8 {
+    grid-area: image_8;
+}
